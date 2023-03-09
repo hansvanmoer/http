@@ -1,0 +1,38 @@
+#
+# Git ignore file
+#
+
+#
+# GCC products
+#
+
+*.o
+http
+
+#
+# Autotools
+#
+
+*.in
+aclocal.m4
+autom4te.cache
+depcomp
+compile
+config.h
+config.log
+config.guess
+config.status
+config.sub
+configure
+install-sh
+Makefile
+missing
+stamp-h1
+.deps
+
+#
+# Emacs
+#
+*~
+\#*
+.#*

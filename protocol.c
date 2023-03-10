@@ -1,4 +1,5 @@
 #include "buffer.h"
+#include "parser.h"
 #include "protocol.h"
 
 #include <errno.h>
@@ -36,8 +37,17 @@ int handle_request(struct connection *c){
       return reject(c, HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR);
     }
   }
+  struct parser parser;
+  init_parser(&parser);
 
-  load_into_parser(&c->parser, c->buffer.data, c->buffer.len);
+  load_into_parser(&parser, c->buffer.data, c->buffer.len);
+
+  if(1) {
+    dispose_parser(&parser);
+    return reject(c, HTTP_STATUS_CODE_BAD_REQUEST);
+  }
+
+  dispose_parser(&parser);
 
   return 0;
 }

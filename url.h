@@ -1,7 +1,8 @@
-#indef URL_H
+#ifndef URL_H
 #define URL_H
 
 #include <stdlib.h>
+#include <stdint.h>
 
 /**
  * An URL buffer
@@ -11,7 +12,7 @@ struct url_buffer {
   /**
    * The host
    */
-  const char * host;
+  char * host;
 
   /**
    * The capacity of the host string buffer
@@ -19,9 +20,14 @@ struct url_buffer {
   size_t host_cap;
 
   /**
+   * The port
+   */
+  uint16_t port;
+  
+  /**
    * The path
    */
-  const char * path;
+  char * path;
 
   /**
    * The capacity of the path string buffer

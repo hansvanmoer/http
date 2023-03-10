@@ -2,7 +2,6 @@
 #define CONNECTION_H
 
 #include "buffer.h"
-#include "parser.h"
 
 #include <stdlib.h>
 
@@ -19,11 +18,6 @@ struct connection {
    * A text buffer
    */
   struct text_buffer buffer;
-
-  /**
-   * A parser
-   */
-  struct parser parser;
 };
 
 /**

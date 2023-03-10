@@ -36,7 +36,6 @@ static void init_connection(struct connection * c) {
 
   c->socket = -1;
   init_text_buffer(&c->buffer);
-  init_parser(&c->parser);
 }
 
 /**
@@ -45,7 +44,6 @@ static void init_connection(struct connection * c) {
 static void dispose_connection(struct connection * c) {
   assert(c != NULL);
 
-  dispose_parser(&c->parser);
   dispose_text_buffer(&c->buffer);
   if(c->socket != -1) {
     close(c->socket);

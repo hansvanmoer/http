@@ -1,6 +1,9 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include "protocol.h"
+#include "url.h"
+
 #include <stdlib.h>
 
 /**
@@ -37,6 +40,11 @@ void clear_parser(struct parser *  p);
  * Loads data into the parser
  */
 void load_into_parser(struct parser * p, const char * data, size_t len);
+
+/**
+ * Parses a request
+ */
+int parse_request(struct parser * p, enum http_method * method, struct url_buffer * url);
 
 /**
  * Disposes of a parser
